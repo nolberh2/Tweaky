@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Vehicle;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.vehicle.VehicleDamageEvent;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -36,6 +37,11 @@ public class VehiclePickupTweak extends DefaultTweak {
 	public void onPlayerInteract(@Nonnull PlayerInteractEntityEvent event) {
 		Player player = event.getPlayer();
 		Vehicle vehicle = (Vehicle) event.getRightClicked();
+		if (vehicle instanceof InventoryHolder holder && !holder.getInventory().isEmpty()) {
+			msg.TWEAK_VEHICLE_PICKUP_ITEMS.send(player);
+			event.setCancelled(true);
+			return;
+		}
 
 		VehicleDamageEvent vehicleDamage = new VehicleDamageEvent(vehicle, player, 0);
 		Bukkit.getPluginManager().callEvent(vehicleDamage);
@@ -69,22 +75,31 @@ public class VehiclePickupTweak extends DefaultTweak {
 		return switch (entity.getType()) {
 			// Boats
 			case OAK_BOAT               -> new ItemStack(Material.OAK_BOAT);
+			case OAK_CHEST_BOAT         -> new ItemStack(Material.OAK_CHEST_BOAT);
 			case SPRUCE_BOAT            -> new ItemStack(Material.SPRUCE_BOAT);
+			case SPRUCE_CHEST_BOAT      -> new ItemStack(Material.SPRUCE_CHEST_BOAT);
 			case BIRCH_BOAT             -> new ItemStack(Material.BIRCH_BOAT);
+			case BIRCH_CHEST_BOAT       -> new ItemStack(Material.BIRCH_CHEST_BOAT);
 			case JUNGLE_BOAT            -> new ItemStack(Material.JUNGLE_BOAT);
+			case JUNGLE_CHEST_BOAT      -> new ItemStack(Material.JUNGLE_CHEST_BOAT);
 			case ACACIA_BOAT            -> new ItemStack(Material.ACACIA_BOAT);
+			case ACACIA_CHEST_BOAT      -> new ItemStack(Material.ACACIA_CHEST_BOAT);
 			case DARK_OAK_BOAT          -> new ItemStack(Material.DARK_OAK_BOAT);
+			case DARK_OAK_CHEST_BOAT    -> new ItemStack(Material.DARK_OAK_CHEST_BOAT);
 			case MANGROVE_BOAT          -> new ItemStack(Material.MANGROVE_BOAT);
+			case MANGROVE_CHEST_BOAT    -> new ItemStack(Material.MANGROVE_CHEST_BOAT);
 			case CHERRY_BOAT            -> new ItemStack(Material.CHERRY_BOAT);
+			case CHERRY_CHEST_BOAT      -> new ItemStack(Material.CHERRY_CHEST_BOAT);
 			case PALE_OAK_BOAT          -> new ItemStack(Material.PALE_OAK_BOAT);
+			case PALE_OAK_CHEST_BOAT    -> new ItemStack(Material.PALE_OAK_CHEST_BOAT);
 			case BAMBOO_RAFT            -> new ItemStack(Material.BAMBOO_RAFT);
+			case BAMBOO_CHEST_RAFT      -> new ItemStack(Material.BAMBOO_CHEST_RAFT);
 			// Mine Carts
 			case MINECART               -> new ItemStack(Material.MINECART);
 			case CHEST_MINECART         -> new ItemStack(Material.CHEST_MINECART);
 			case FURNACE_MINECART       -> new ItemStack(Material.FURNACE_MINECART);
 			case TNT_MINECART           -> new ItemStack(Material.TNT_MINECART);
 			case HOPPER_MINECART        -> new ItemStack(Material.HOPPER_MINECART);
-			case COMMAND_BLOCK_MINECART -> new ItemStack(Material.COMMAND_BLOCK_MINECART);
 			// Default
 			default -> null;
 		};
