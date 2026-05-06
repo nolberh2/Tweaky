@@ -57,6 +57,37 @@ public abstract class ToggleTweak extends DefaultTweak implements CommandExecuto
 
 	@Override
 	public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, @Nonnull String[] args) {
+		// All toggle tweaks can be manually activated on a player via admin command.
+		if (sender.hasPermission("tweaky.admin") && args.length >= 1) {
+			Player target = Players.get(args[0]).orElse(null);
+			if (target == null) {
+				msg.ADMIN_FAILURE_INVALID_PLAYER.replace("{player}", args[0]).send(sender);
+				return true;
+			}
+
+			boolean on = !toggleOn.contains(target.getUniqueId());
+			if (args.length >= 2) {
+				switch (args[1].toLowerCase()) {
+					case "on" -> on = true;
+					case "off" -> on = false;
+				}
+			}
+
+			if (on) {
+				toggleOn.add(target.getUniqueId());
+				NBT.setTag(target, TOGGLE_KEY, true);
+				activate(target);
+				msg.ADMIN_SUCCESS_TOGGLE_ON_PLAYER.replace("{tweak}", id).replace("{player}", target.getName()).send(sender);
+			} else {
+				toggleOn.remove(target.getUniqueId());
+				NBT.setTag(target, TOGGLE_KEY, false);
+				deactivate(target);
+				msg.ADMIN_SUCCESS_TOGGLE_OFF_PLAYER.replace("{tweak}", id).replace("{player}", target.getName()).send(sender);
+			}
+
+			return true;
+		}
+
 		if (!(sender instanceof Player player) || !hasPermission(player)) {
 			return true;
 		}

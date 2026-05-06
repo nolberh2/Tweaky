@@ -9,11 +9,23 @@ import org.bukkit.util.RayTraceResult;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public final class Players {
+
+	/**
+	 * Returns the player with the given name.
+	 *
+	 * @param name the name of the player
+	 * @return the player
+	 */
+	@Nonnull
+	public static Optional<Player> get(@Nonnull String name) {
+		return Optional.ofNullable(Bukkit.getServer().getPlayerExact(name));
+	}
 
 	/**
 	 * Returns a collection of all online players.

@@ -35,6 +35,8 @@ tweaks:
   feed-notify: "&e{player} &7just fed you a &e{item}&7. (&a+{hunger} &7hunger)"
   # (player-feed) Message to send when you cannot feed a player.
   feed-full: "&e{player} &7is full and cannot be fed right now."
+  # (vehicle-pickup) Message to send to players when they attempt to pick up a vehicle with items in it.
+  vehicle-pickup-items: "&cYou cannot pick up a vehicle with items in it."
 
 # Messages that regular players can receive.
 player:
@@ -48,11 +50,17 @@ admin:
       - "&7[&eTweaky&7] &aNew update available: &ev{latest} &7(current v{current})"
       - "            &8{download}"
   success:
+    reloaded: "&7[&eTweaky&7] &aReloaded configuration files. Registered &e{amount} &atweaks."
+    # `toggle-on` and `toggle-off` are for toggling tweaks.
     toggle-on: "&7[&eTweaky&7] &aYou have toggled on the &e{tweak} &atweak."
     toggle-off: "&7[&eTweaky&7] &cYou have toggled off the &e{tweak} &ctweak."
-    reloaded: "&7[&eTweaky&7] &aReloaded configuration files. Registered &e{amount} &atweaks."
+    # `toggle-on-player` and `toggle-off-player` are for toggling a player's toggle tweak.
+    # This only includes tweaks that can be toggled via a command (e.g. /nightvision).
+    toggle-on-player: "&7[&eTweaky&7] &aYou have toggled on the &e{tweak} &atweak for &e{player}&a."
+    toggle-off-player: "&7[&eTweaky&7] &cYou have toggled off the &e{tweak} &ctweak for &e{player}&c."
   failure:
     invalid-tweak: "&7[&eTweaky&7] &cThere is no tweak with the name &e{tweak}&c."
+    invalid-player: "&7[&eTweaky&7] &cThere is no player with the name &e{player}&c."
   usage:
     tweaky:
       - "&8&l&m━━━━━━━━━━━━━━&7 &e&lTweaky &cAdmin Commands &8&l&m━━━━━━━━━━━━━━"
