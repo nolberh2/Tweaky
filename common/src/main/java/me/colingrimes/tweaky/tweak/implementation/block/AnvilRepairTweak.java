@@ -2,6 +2,7 @@ package me.colingrimes.tweaky.tweak.implementation.block;
 
 import me.colingrimes.tweaky.Tweaky;
 import me.colingrimes.tweaky.event.PlayerInteractBlockEvent;
+import me.colingrimes.tweaky.tweak.type.ConfigurableTweak;
 import me.colingrimes.tweaky.tweak.type.DefaultTweak;
 import me.colingrimes.tweaky.tweak.event.TweakHandler;
 import me.colingrimes.tweaky.tweak.properties.TweakProperties;
@@ -17,7 +18,7 @@ import org.bukkit.inventory.EquipmentSlot;
 
 import javax.annotation.Nonnull;
 
-public class AnvilRepairTweak extends DefaultTweak {
+public class AnvilRepairTweak extends DefaultTweak implements ConfigurableTweak {
 
 	public AnvilRepairTweak(@Nonnull Tweaky plugin) {
 		super(plugin, "anvil_repair");
@@ -33,6 +34,10 @@ public class AnvilRepairTweak extends DefaultTweak {
 
 	@TweakHandler(ignoreCancelled = true)
 	public void onPlayerInteract(@Nonnull PlayerInteractBlockEvent event) {
+		if (settings.TWEAK_ANVIL_REPAIR_SNEAK_REQUIRED.get() && !event.getPlayer().isSneaking()) {
+			return;
+		}
+
 		repairAnvil(event.getPlayer(), event.getHand(), event.getBlock(), ((Directional) event.getBlock().getBlockData()).getFacing());
 		event.setCancelled(true);
 	}

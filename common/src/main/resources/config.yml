@@ -2,7 +2,10 @@ tweaks:
   # Items can be colored in the anvil.
   anvil-color: false
   # Right-clicking an anvil with an iron block will repair it slightly.
-  anvil-repair: false
+  anvil-repair:
+    toggle: false
+    # Should the player be required to sneak in order to activate this tweak?
+    sneak-required: false
   # Armor Stands have arms by default when spawned.
   armor-stand-arms: false
   # Shift over an armor stand to quick swap armor.
@@ -55,7 +58,11 @@ tweaks:
   # This gives them permission to the '/coordinates' command to toggle it.
   coordinates: false
   # Allows players to bone meal any crop.
-  crops-bone-meal: false
+  crops-bone-meal:
+    toggle: false
+    # Maximum height that sugar cane and cactus can be grown through this tweak.
+    # Set to -1 to allow them to grow indefinitely (until height limit).
+    max-height: -1
   # Right-click crops with a hoe to harvest them.
   crops-harvest: false
   # Prevents the trampling of crops.

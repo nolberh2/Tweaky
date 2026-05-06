@@ -3,6 +3,7 @@ package me.colingrimes.tweaky.tweak.implementation.crop;
 import com.google.common.base.Preconditions;
 import me.colingrimes.tweaky.Tweaky;
 import me.colingrimes.tweaky.tweak.event.TweakHandler;
+import me.colingrimes.tweaky.tweak.type.ConfigurableTweak;
 import me.colingrimes.tweaky.tweak.type.DefaultTweak;
 import me.colingrimes.tweaky.tweak.properties.TweakProperties;
 import me.colingrimes.tweaky.util.bukkit.Blocks;
@@ -22,7 +23,7 @@ import javax.annotation.Nonnull;
  * <li>Sugar Cane</li>
  * <li>Cactus</li>
  */
-public class CropBoneMealTweak extends DefaultTweak {
+public class CropBoneMealTweak extends DefaultTweak implements ConfigurableTweak {
 
 	public CropBoneMealTweak(@Nonnull Tweaky plugin) {
 		super(plugin, "crops_bone_meal");
@@ -63,7 +64,20 @@ public class CropBoneMealTweak extends DefaultTweak {
 			top = top.getLocation().add(0, 1, 0).getBlock();
 		}
 
-		if (top.getY() >= top.getWorld().getMaxHeight() || !top.getType().isAir()) {
+		Block bottom = block.getLocation().clone().subtract(0, 1, 0).getBlock();
+		while (bottom.getType() == type) {
+			bottom = bottom.getLocation().subtract(0, 1, 0).getBlock();
+		}
+
+		// Top should be AIR, bottom should be bottom-most CROP.
+		bottom = bottom.getLocation().add(0, 1, 0).getBlock();
+		if (!top.getType().isAir()) {
+			return false;
+		}
+
+		int maxHeight = settings.TWEAK_CROPS_BONE_MEAL_MAX_HEIGHT.get();
+		boolean validHeight = maxHeight == -1 ? top.getY() < top.getWorld().getMaxHeight() : top.getY() < bottom.getY() + maxHeight;
+		if (!validHeight) {
 			return false;
 		}
 
