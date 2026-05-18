@@ -5,7 +5,6 @@ import me.colingrimes.tweaky.menu.tweak.util.TweakItem;
 import me.colingrimes.tweaky.tweak.event.TweakHandler;
 import me.colingrimes.tweaky.tweak.type.ConfigurableTweak;
 import me.colingrimes.tweaky.tweak.type.DefaultTweak;
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -30,9 +29,7 @@ public class HappyGhastSpeedTweak extends DefaultTweak implements ConfigurableTw
 	@Nonnull
 	@Override
 	public TweakItem getGuiItem() {
-		return menus.TWEAK_HAPPY_GHAST_SPEED.get()
-				.material(Material.HAPPY_GHAST_SPAWN_EGG)
-				.placeholder("{speed}", settings.TWEAK_HAPPY_GHAST_SPEED_VALUE.get());
+		return menus.TWEAK_HAPPY_GHAST_SPEED.get().placeholder("{speed}", settings.TWEAK_HAPPY_GHAST_SPEED_VALUE.get());
 	}
 
 	@TweakHandler
