@@ -1,8 +1,8 @@
 ## Tweaky
-A collection of 80+ lightweight, toggleable, configurable tweaks.
+A collection of 90+ lightweight, toggleable, configurable tweaks.
 
 ## Overview
-- 80+ tweaks available.
+- 90+ tweaks available.
 - Players can easily view all enabled tweaks via the `/tweaks` GUI.
 - Admins can easily view and toggle all available tweaks via the `/tweaky toggle` GUI.
 - Supports protection plugins (e.g. WorldGuard).
