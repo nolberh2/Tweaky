@@ -29,7 +29,7 @@ public class DoorIronTweak extends DefaultTweak {
 				.block(Material.IRON_DOOR);
 	}
 
-	@TweakHandler(priority = EventPriority.HIGH)
+	@TweakHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
 	public void onPlayerInteractBlock(@Nonnull PlayerInteractBlockEvent event) {
 		event.setCancelled(true);
 		event.getPlayer().swingMainHand();
