@@ -72,6 +72,7 @@ public class TweakMenuConstants {
 			"revert_stripped",
 			"doors_double",
 			"doors_iron",
+			"path_speed",
 			"sponge_ignite",
 			"ladder_placement",
 			// Crops
@@ -100,6 +101,7 @@ public class TweakMenuConstants {
 			"item_frame_click_through",
 			"weapon_swing_through",
 			"keep_inventory",
+			"shulker_box_insert",
 			// Recipes
 			"recipe_unlock_all",
 			"recipe_hopper",
@@ -118,6 +120,8 @@ public class TweakMenuConstants {
 			"recipe_cobweb",
 			"recipe_unpack_cobweb",
 			"recipe_unpack_wool",
+			"recipe_dirt_path",
+			"recipe_grass_block",
 			"recipe_splash_water_bottles",
 			// Misc
 			"armor_swap",
@@ -127,6 +131,8 @@ public class TweakMenuConstants {
 			"item_frame_invisible",
 			"armor_stand_arms",
 			"torch_throw",
-			"player_feed"
+			"drops_player_head",
+			"player_feed",
+			"food_glow_berries"
 	);
 }

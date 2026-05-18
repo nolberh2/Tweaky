@@ -32,10 +32,12 @@ public class Settings extends Configuration {
 	public final Option<Boolean>       TWEAK_CAULDRON_CONCRETE_USE_WATER   = option("tweaks.cauldron-concrete.use-water");
 	public final Option<Boolean>       TWEAK_CAULDRON_MUD_USE_WATER        = option("tweaks.cauldron-mud.use-water");
 	public final Option<Integer>       TWEAK_CROPS_BONE_MEAL_MAX_HEIGHT    = option("tweaks.crops-bone-meal.max-height", -1);
+	public final Option<Double>        TWEAK_DROPS_PLAYER_HEAD_CHANCE      = option("tweaks.drops-player-head.chance", "tweaks.drops-player-head", sec -> Double.parseDouble(sec.getString("chance", "0%").replace("%", "")));
 	public final Option<Integer>       TWEAK_DURABILITY_INDICATOR_AMOUNT   = option("tweaks.durability-indicator.durability", 10);
 	public final Option<Set<Material>> TWEAK_DURABILITY_INDICATOR_MATS     = option("tweaks.durability-indicator.materials", "tweaks.durability-indicator", sec -> sec.getStringList("materials").stream().map(m -> Material.getMaterial(m.toUpperCase())).filter(Objects::nonNull).collect(Collectors.toSet()));
+	public final Option<Integer>       TWEAK_FOOD_GLOW_BERRIES_SECONDS     = option("tweaks.food-glow-berries.seconds", 30);
 	public final Option<Integer>       TWEAK_FORTUNE_SILK_SWAP_COST        = option("tweaks.fortune-silk-swap.cost", 30);
-	public final Option<Double>        TWEAK_HAPPY_GHAST_SPEED_VALUE       = option("tweaks.happy-ghast-speed.value", 1.5);
+	public final Option<Double>        TWEAK_HAPPY_GHAST_SPEED_VALUE       = option("tweaks.happy-ghast-speed.value", "tweaks.happy-ghast-speed", sec -> Double.parseDouble(sec.getString("value", "1.5x").replace("x", "")));
 	public final Option<Integer>       TWEAK_INVENTORY_ENDER_CHEST_COST    = option("tweaks.inventory-ender-chest.cost", 30);
 	public final Option<Boolean>       TWEAK_KEEP_INVENTORY_XP             = option("tweaks.keep-inventory.xp");
 	public final Option<Boolean>       TWEAK_KEEP_INVENTORY_ARMOR          = option("tweaks.keep-inventory.armor", true);
@@ -43,6 +45,7 @@ public class Settings extends Configuration {
 	public final Option<Double>        TWEAK_KEEP_INVENTORY_UNSTACKABLES   = option("tweaks.keep-inventory.unstackables", "tweaks.keep-inventory", sec -> Double.parseDouble(sec.getString("unstackables", "0%").replace("%", "")));
 	public final Option<Double>        TWEAK_KEEP_INVENTORY_STACKABLES     = option("tweaks.keep-inventory.stackables", "tweaks.keep-inventory", sec -> Double.parseDouble(sec.getString("stackables", "0%").replace("%", "")));
 	public final Option<String>        TWEAK_LADDER_TELEPORTATION_CONTROL  = option("tweaks.ladder-teleportation.control", "Automatic");
+	public final Option<Double>        TWEAK_PATH_SPEED_MULTIPLIER         = option("tweaks.path-speed.multiplier", "tweaks.path-speed", sec -> Double.parseDouble(sec.getString("multiplier", "2.0x").replace("x", "")));
 	public final Option<Double>        TWEAK_SNOWBALLS_DAMAGE_AMOUNT       = option("tweaks.snowballs-damage.amount", 1.0);
 	public final Option<Double>        TWEAK_SNOWBALLS_KNOCKBACK_AMOUNT    = option("tweaks.snowballs-knockback.amount", 0.5);
 	public final Option<Integer>       TWEAK_XP_FILL_COST                  = option("tweaks.xp-fill.cost", 8);

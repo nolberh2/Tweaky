@@ -195,6 +195,11 @@ tweak-menu:
       usage:
         - "&eUsage: &aRight Click a Cauldron to open up your Drop Filter."
         - "         &aType &e/filter &aor &e/drops &ato easily toggle it on or off."
+    drops-player-head:
+      type: PLAYER_HEAD
+      name: "&aPlayer Head Drop"
+      lore: "&7Killing another Player has a &e{chance}% &7chance to drop their head."
+      usage: "&eUsage: &aIf you kill a player, there is a &e{chance}% &achance that their head will drop."
     drops-magnet:
       type: FLINT
       name: "&aDrops Magnet &8(Break)"
@@ -238,6 +243,11 @@ tweak-menu:
         - "&7Name a Mob \"&esilence&7\" to make it silent."
         - "&7Name a Mob \"&eunsilence&7\" to make it audible."
       usage: "&eUsage: &aName a Mob \"silence\" or \"unsilence\" to toggle its sound."
+    food-glow-berries:
+      type: GLOW_BERRIES
+      name: "&aGlow Berries Glow &8(Eat)"
+      lore: "&7Eat Glow Berries to Glow!"
+      usage: "&eUsage: &aEating Glow Berries will give you the glow effect."
     fortune-silk-swap:
       type: NETHERITE_PICKAXE
       name: "&aFortune Silk Swap &8(Right Click)"
@@ -261,7 +271,7 @@ tweak-menu:
     happy-ghast-speed:
       type: HAPPY_GHAST_SPAWN_EGG
       name: "&aIncreased Speed of Happy Ghasts"
-      lore: "&7Speed Multipler: &e{speed}x"
+      lore: "&7Speed Multiplier: &e{speed}x"
       usage: "&eUsage: &aIncreases the speed of Happy Ghasts by &e{speed}x&a."
     hay-bale-bread:
       type: BREAD
@@ -356,6 +366,11 @@ tweak-menu:
       name: "&aNight Vision &8(Command)"
       lore: "&7Toggle Night Vision."
       usage: "&eUsage: &aType &e/nightvision &ato toggle Night Vision."
+    path-speed:
+      type: DIRT_PATH
+      name: "&aPath Speed &8(Move)"
+      lore: "&7Moving on Paths increases your Speed by &e{multiplier}x&7."
+      usage: "&eUsage: &aWhenever you are on Dirt Paths, your speed is increased by &e{multiplier}x&a."
     pet-protection:
       type: WOLF_SPAWN_EGG
       name: "&aPet Protection"
@@ -383,6 +398,10 @@ tweak-menu:
       type: COBWEB
       name: "&aCobweb &8(Craft)"
       lore: "&7Craft Cobwebs from String."
+    recipe-dirt-path:
+      type: DIRT_PATH
+      name: "&aDirt Path &8(Craft)"
+      lore: "&7Craft Dirt Paths from Dirt."
     recipe-god-apple:
       type: ENCHANTED_GOLDEN_APPLE
       name: "&aGod Apple &8(Craft)"
@@ -395,6 +414,10 @@ tweak-menu:
       type: GLISTERING_MELON_SLICE
       name: "&aGlistering Melon &8(Craft)"
       lore: "&7Craft Glistering Melon from Gold Ingot."
+    recipe-grass-block:
+      type: GRASS_BLOCK
+      name: "&aGrass Block &8(Craft)"
+      lore: "&7Craft Grass Blocks from Dirt + Bone Meal."
     recipe-hopper:
       type: HOPPER
       name: "&aHopper &8(Craft)"
@@ -471,6 +494,11 @@ tweak-menu:
         - "&8Requires:"
         - " &7Axe &8(Any)"
       usage: "&eUsage: &aSneak Right Click on a Stripped Log or Stem with an Axe to revert it back to its previous variant."
+    shulker-box-insert:
+      type: SHULKER_BOX
+      name: "&aShulker Box Insert &8(Sneak Left Click)"
+      lore: "&7Insert all items into a Chest."
+      usage: "&eUsage: &aSneak Left Click a Chest with a Shulker Box to instantly insert items in the Chest."
     snowballs:
       type: SNOWBALL
       name: "&aSnowball Tweaks &8({count})"

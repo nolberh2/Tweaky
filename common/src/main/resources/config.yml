@@ -78,6 +78,11 @@ tweaks:
   # Adding items to the filter prevents you from picking them up.
   # This also gives players permission to use the '/drops' command to toggle it.
   drops-filter: false
+  # A player's head now has a chance to drop when they are killed by another player.
+  drops-player-head:
+    toggle: false
+    # Chance to drop player head.
+    chance: 20%
   # Breaking blocks nearby will cause their item drops to go towards the player a little.
   # This means if you are building high up, you won't lose all your drops.
   drops-magnet: false
@@ -110,6 +115,11 @@ tweaks:
   # If you name an entity with "silent" or "silence", it will be permanently silent.
   # To undo this, simply name the entity "unsilent" or "unsilence".
   entity-silence: false
+  # When you eat glow berries, you glow!
+  food-glow-berries:
+    toggle: false
+    # Number of seconds that the glow effect lasts.
+    seconds: 30
   # Allows you to add fortune and silk touch to the same tool.
   # Right-click to swap the enchantment used.
   fortune-silk-swap:
@@ -122,7 +132,7 @@ tweaks:
   happy-ghast-speed:
     toggle: false
     # Speed value of riding happy ghast.
-    value: 1.5
+    value: 1.5x
   # Right-clicking a hay bale with a hoe automatically crafts and drops bread.
   hay-bale-bread: false
   # Right-click a horse with a brush to randomize its color and style.
@@ -169,6 +179,11 @@ tweaks:
     control: Automatic
   # Gives players unlimited night vision if they activate it with '/nv' or '/gamma'.
   night-vision: false
+  # Increases player walk speed when on dirt paths.
+  path-speed:
+    toggle: false
+    # Speed multiplier.
+    multiplier: 2.0x
   # Prevents you from attacking your own pet.
   pet-protection: false
   # Right-click on a player with food to feed them! :)
@@ -182,12 +197,16 @@ tweaks:
   recipe-chests: false
   # Craft cobwebs from 5 string.
   recipe-cobweb: false
+  # Craft dirt path from 3 dirt.
+  recipe-dirt-path: false
   # Craft the OG god apple.
   recipe-god-apple: false
   # Craft golden carrots using 1 gold ingot instead of 8 gold nuggets.
   recipe-golden-carrot: false
   # Craft golden melons using 1 gold ingot instead of 8 gold nuggets.
   recipe-golden-melon: false
+  # Craft grass block from dirt + bone meal.
+  recipe-grass-block: false
   # Craft hoppers using 2 logs instead of 1 chest.
   recipe-hopper: false
   # Smelt rotten flesh into leather.
@@ -219,6 +238,8 @@ tweaks:
   revert-path: false
   # Sneak-right-click on a stripped log or stem to revert it back to its previous variant.
   revert-stripped: false
+  # Sneak-left-click a chest with a shulker box to instantly insert items in the chest.
+  shulker-box-insert: false
   # Throwing snowballs on existing snow layers will add snow layers.
   snowballs-add-snow-layer: false
   # Throwing snowballs on plants or flowers will break them.
