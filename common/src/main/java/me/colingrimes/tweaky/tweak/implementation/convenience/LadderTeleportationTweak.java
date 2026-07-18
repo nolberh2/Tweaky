@@ -131,9 +131,16 @@ public class LadderTeleportationTweak extends DefaultTweak implements Configurab
 			return;
 		}
 
+		event.setCancelled(true);
 		Player player = event.getPlayer();
+
+		Scheduler.sync().run(() -> handleLadderTeleport(player,block));
+	}
+
+	private void handleLadderTeleport(Player player, Block block) {
 		boolean up = player.getLocation().getPitch() <= 0;
 
+		if (!(block.getBlockData() instanceof Ladder ladder)) return;
 		Vector direction = up ? new Vector(0, 1, 0) : new Vector(0, -1, 0);
 		while (block.getBlockData() instanceof Ladder l && l.getFacing() == ladder.getFacing()) {
 			block = block.getLocation().add(direction).getBlock();
