@@ -52,6 +52,15 @@ public class ConfigurationProvider {
 			}
 		}
 
+		// Preserves any user-defined values that are not part of the default config.
+		// Without this, options such as a tweak's "world-blacklist" would be wiped on
+		// every startup, along with any tweak the user converted to the nested form.
+		for (String key : oldConfig.getKeys(true)) {
+			if (!oldConfig.isConfigurationSection(key) && !newConfig.contains(key)) {
+				newConfig.set(key, oldConfig.get(key));
+			}
+		}
+
 		// Saves the new config.
 		try {
 			newConfig.save(configFile);
